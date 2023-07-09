@@ -14,6 +14,8 @@ function renderTestData(randomData) {
     // elements.product.value = randomData.value;
 }
 
+export {elements, renderTestData}
+
 console.log(elements.form);
 console.log(elements.name);
 console.log(elements.phone);

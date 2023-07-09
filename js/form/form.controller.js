@@ -9,3 +9,9 @@ function insertTestData() {
     view.renderTestData(randomData);
 }
 insertTestData();
+
+console.log(elements.form);
+console.log(elements.name);
+console.log(elements.phone);
+console.log(elements.email);
+console.log(elements.product);
