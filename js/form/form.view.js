@@ -1,10 +1,9 @@
 //! DOM
 const elements = {
-    form: document.getElementById("#form-group"),
-    name: document.getElementById("#name"),
-    phone: document.getElementById("#phone"),
-    email: document.getElementById("#email"),
-    product: document.getElementById("#product"),
+    name: document.querySelector("#name"),
+    phone: document.querySelector("#phone"),
+    email: document.querySelector("#email"),
+    // product: document.querySelector("#product"),
 }
 
 function renderTestData(randomData) {
@@ -14,13 +13,13 @@ function renderTestData(randomData) {
     // elements.product.value = randomData.value;
 }
 
-export {elements, renderTestData}
-
-console.log(elements.form);
 console.log(elements.name);
 console.log(elements.phone);
 console.log(elements.email);
-console.log(elements.product);
+// console.log(elements.product);
+
+export {elements, renderTestData}
+
 
 {/* <label>Ваши данные:</label>
 <div class="form-group">
