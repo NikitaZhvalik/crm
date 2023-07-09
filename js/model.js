@@ -1,28 +1,39 @@
-const formAdd = [];
+const formsAdd = loadRequests();
 
 function createRecord(formData) {
     //! расчет id
     let id = 1;
-    if (formAdd.length > 0) {
-      const lastElement = formAdd[formAdd.length - 1];
+    if (formsAdd.length > 0) {
+      const lastElement = formsAdd[formsAdd.length - 1];
       const lastElId = lastElement.id;
       id = lastElement.id + 1;
     }
   
     //! формируем заявку
-    const record = {
+    const formAdd = {
       id: id,
-      date: date,
-      product: product,
-      name: name,
-      email: email,
-      phone: phone,
-      status: 'new',
+      product: formData.product,
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
     };
-  
-    //! добавляем заявку в массив
-    formAdd.push(record);
-    return record;
+
+    formsAdd.push(formAdd);
+
+    saveRequests();
+
+    console.log(formAdd);
+    console.log(formsAdd);
+    // return formAdd;
+}
+console.log(formsAdd);
+
+function saveRequests(){
+  localStorage.setItem('formsAdd', JSON.stringify(formsAdd))
 }
 
-export {formAdd, createRecord}
+function loadRequests(){
+  return localStorage.getItem('formsAdd') ? JSON.parse(localStorage.getItem('formsAdd')) : [];
+}
+
+export {formsAdd, createRecord}

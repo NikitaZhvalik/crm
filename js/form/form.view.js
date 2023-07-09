@@ -5,7 +5,7 @@ const elements = {
     phone: document.querySelector("#phone"),
     email: document.querySelector("#email"),
     product: document.querySelector("#product"),
-    btnAddForm: document.querySelector(".btn-lg")
+    btnAddForm: document.querySelector(".btn-lg") 
 }
 
 function renderTestData(randomData) {
@@ -15,4 +15,17 @@ function renderTestData(randomData) {
     elements.product.value = randomData.product;
 }
 
-export {elements, renderTestData}
+function elementsData() {
+    return {
+        name: elements.name.value,
+        phone: elements.phone.value,
+        email: elements.email.value,
+        product: elements.product.value,
+    }
+}
+
+function clearForm (){
+    elements.form.reset();
+}
+
+export {elements, renderTestData, clearForm, elementsData}
