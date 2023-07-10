@@ -1,5 +1,13 @@
 const formsAdd = loadRequests();
 
+  //! работа с временем
+function formatCommentDate(date) {
+  const day = date.getDate().toString().padStart(2, '0');
+  const month = (date.getMonth() + 1).toString().padStart(2, '0');
+  const year = (date.getFullYear() - 2000).toString();
+  return `${day}.${month}.${year}`;
+}
+
 function createRecord(formData) {
     //! расчет id
     let id = 1;
@@ -8,10 +16,15 @@ function createRecord(formData) {
       const lastElId = lastElement.id;
       id = lastElement.id + 1;
     }
+
+    //! работа с временем
+    let date = new Date();
+    date = formatCommentDate(date);
   
     //! формируем заявку
     const formAdd = {
       id: id,
+      date: date,
       product: formData.product,
       name: formData.name,
       email: formData.email,
@@ -34,4 +47,8 @@ function loadRequests(){
   return localStorage.getItem('formsAdd') ? JSON.parse(localStorage.getItem('formsAdd')) : [];
 }
 
-export {formsAdd, createRecord}
+function getForms(){
+  return formsAdd
+}
+
+export {formsAdd, createRecord, getForms}
