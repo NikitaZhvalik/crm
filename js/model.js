@@ -22,9 +22,7 @@ function createRecord(formData) {
 
     saveRequests();
 
-    console.log(formAdd);
     console.log(formsAdd);
-    // return formAdd;
 }
 console.log(formsAdd);
 
