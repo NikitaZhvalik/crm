@@ -1,9 +1,9 @@
 import * as model from './../model.js';
 import * as view from './table.view.js';
 
-function renderAllForms() {
+function renderAllRequest() {
     const records = model.getForms();
-    view.renderAllForm(records);
+    view.renderAllRequest(records);
 }
 
-renderAllForms();
+renderAllRequest();

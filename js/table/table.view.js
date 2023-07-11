@@ -2,18 +2,38 @@ const elements = {
     containerForms: document.querySelector('#tbody'),
 }
 
-function renderAllForm(records) {
+function renderAllRequest(records) {
+    const statusObj = {
+        new: "Новая",
+        inwork: "В работе",
+        complete: "Завершенная",
+    }
+
+    const statusClassObj = {
+        new: "badge-danger",
+        inwork: "badge-success",
+        complete: "badge-warning",
+    }
+
+    const productObj = {
+        'course-html': "Курс по верстке",
+        'course-js': "Курс по JavaScript",
+        'course-vue': "Курс по VUE JS",
+        'course-php': "Курс по PHP",
+        'course-wordpress': "Курс по WordPress",
+    }
+
     for (const record of records) {
         const html = `
         <tr>
             <th scope="row">${record.id}</th>
             <td>${record.date}</td>
-            <td>${record.product}</td>
+            <td>${productObj[record.product]}</td>
             <td>${record.name}</td>
             <td>${record.email}</td>
             <td>${record.phone}</td>
             <td>
-                <div class="badge badge-pill badge-danger">Новый</div>
+                <div class="badge badge-pill ${statusClassObj[record.status]}">${statusObj[record.status]}</div>
             </td>
             <td>
                 <a href="edit.html">Редактировать</a>
@@ -24,4 +44,4 @@ function renderAllForm(records) {
     }
 }
 
-export {elements, renderAllForm}
+export {elements, renderAllRequest}
