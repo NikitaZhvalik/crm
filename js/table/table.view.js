@@ -36,7 +36,7 @@ function renderAllRequest(records) {
                 <div class="badge badge-pill ${statusClassObj[record.status]}">${statusObj[record.status]}</div>
             </td>
             <td>
-                <a href="edit.html">Редактировать</a>
+                <a href="edit.html?id=${record.id}">Редактировать</a>
             </td>
         </tr>
     `
