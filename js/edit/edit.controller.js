@@ -22,6 +22,7 @@ function setupEventListeners() {
 
 function formSubmitHandler(e) {
     e.preventDefault();
-    const data = view.getFormInput();
-    console.log(data);
+    const formData = view.getFormInput();
+    model.updateRequest(formData);
+    window.location = './table.html';
 }

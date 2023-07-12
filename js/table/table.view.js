@@ -11,8 +11,8 @@ function renderAllRequest(records) {
 
     const statusClassObj = {
         new: "badge-danger",
-        inwork: "badge-success",
-        complete: "badge-warning",
+        inwork: "badge-warning",      
+        complete: "badge-success",
     }
 
     const productObj = {
