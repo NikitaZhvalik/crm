@@ -1,5 +1,48 @@
 const formsAdd = loadRequests();
 
+const filter = {
+  products: 'all',
+  status: 'all',
+}
+
+function changeFilter(prop, value) {
+  filter[prop] = value;
+  return filter
+}
+
+function filterRequests(filter) {
+  let filterRequests;
+
+  //! фильтр по продукту
+  if (filter.products !== 'all') {
+    filterRequests = formsAdd.filter((request) => request.product === filter.products);
+  } else {
+    filterRequests = [...formsAdd];
+  }
+
+  filterRequestsStatus(filter);
+
+  return filterRequests;
+}
+
+function filterRequestsStatus(filter) {
+  let filterRequestsStatus;
+
+  //! фильтр по статусу
+  if (filter.status !== 'all') {
+    filterRequestsStatus = formsAdd.filter((request) => request.status === filter.status);
+  } else {
+    filterRequestsStatus = [...formsAdd];
+  }
+
+  return filterRequestsStatus;
+}
+
+function countNewRequest() {
+  const newRequests = formsAdd.filter((request) => request.status === 'new');
+  return newRequests.length;
+}
+
 function createRecord(formData) {
     //! расчет id
     let id = 1;
@@ -57,4 +100,4 @@ function updateRequest(formData) {
   saveRequests();
 }
 
-export {formsAdd, createRecord, getForms, getRequestById, updateRequest}
+export {formsAdd, changeFilter, filterRequests, createRecord, getForms, getRequestById, updateRequest, filterRequestsStatus, countNewRequest}

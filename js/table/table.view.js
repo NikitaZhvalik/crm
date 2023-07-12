@@ -1,8 +1,15 @@
 const elements = {
     containerForms: document.querySelector('#tbody'),
+    select: document.querySelector('#productSelect'),
+    topStatusBar: document.querySelector('#topStatusBar'),
+    leftStatusLinks: document.querySelectorAll('[data-role="left-status"]'),
+    leftPanelNav: document.querySelector('.left-panel__navigation'),
+    badgeNew: document.querySelector('#badge-new'),
 }
 
 function renderAllRequest(records) {
+    elements.containerForms.innerHTML = '';
+
     const statusObj = {
         new: "Новая",
         inwork: "В работе",
@@ -44,4 +51,22 @@ function renderAllRequest(records) {
     }
 }
 
-export {elements, renderAllRequest}
+function updateStatusBar(value) {
+    //! меняем верхний статус бар
+    elements.topStatusBar.querySelectorAll('a').forEach((link) => link.classList.remove('active'));
+    elements.topStatusBar.querySelector(`a[data-value="${value}"]`).classList.add('active');
+
+    // //! меняем левый статус бар
+    elements.leftStatusLinks.forEach((link) => link.classList.remove('active'));
+    elements.leftPanelNav.querySelector(`a[data-value="${value}"]`).classList.add('active');
+}
+
+function renderBadgeNew(number) {
+    elements.badgeNew.innerText = number;
+
+    if (number == 0) {
+        elements.badgeNew.classList.add('none');
+    }
+}
+
+export {elements, renderAllRequest, updateStatusBar, renderBadgeNew}
