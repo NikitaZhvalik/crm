@@ -13,9 +13,17 @@ function changeFilter(prop, value) {
 function filterRequests(filter) {
   let filterRequests;
 
+  //! фильтр по продукту
   if (filter.products !== 'all') {
-    filterRequests = formsAdd.filter((request) =>request.product === filter.products);
+    filterRequests = formsAdd.filter((request) => request.product === filter.products);
+  } else {
+    filterRequests = [...formsAdd];
   }
+
+  //! фильтр по статусу
+  if (filter.status !== 'all') {
+    filterRequests = formsAdd.filter((request) => request.status === filter.status);
+  } 
 
   return filterRequests;
 }
