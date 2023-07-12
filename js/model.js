@@ -39,4 +39,8 @@ function getForms(){
   return formsAdd
 }
 
-export {formsAdd, createRecord, getForms}
+function getRequestById(id) {
+  return formsAdd.find((item) => item.id == id)
+}
+
+export {formsAdd, createRecord, getForms, getRequestById}

@@ -5,6 +5,8 @@ import * as view from './edit.view.js';
 //! Получаем id завки при нажатии на ссылку 'редактировать' 
 function init() {
     const id = getRequestId();
+    const request = model.getRequestById(id);
+    console.log(request);
 }
 init();
 
