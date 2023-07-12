@@ -2,9 +2,9 @@ import * as model from './../model.js';
 import * as view from './table.view.js';
 
 function renderAllRequest() {
-    addEventListeners();
     const records = model.getForms();
     view.renderAllRequest(records);
+    addEventListeners();
 }
 
 function addEventListeners() {
@@ -14,7 +14,7 @@ function addEventListeners() {
 function filterProducts() {
     const filter = model.changeFilter('products', this.value);
     const filterRequests = model.filterRequests(filter);
-    console.log(filterRequests);
+    view.renderAllRequest(filterRequests);
 }
 
 renderAllRequest();

@@ -1,10 +1,12 @@
 const elements = {
     containerForms: document.querySelector('#tbody'),
     select: document.querySelector('#productSelect'),
-    
+
 }
 
 function renderAllRequest(records) {
+    elements.containerForms.innerHTML = '';
+
     const statusObj = {
         new: "Новая",
         inwork: "В работе",
