@@ -10,11 +10,13 @@ function createRecord(formData) {
 
     //! работа с временем
     let date = new Date().toLocaleDateString();
+    let dateTime = new Date().toLocaleTimeString();
   
     //! формируем заявку
     const formAdd = {
       id: id,
       date: date,
+      dateTime: dateTime,
       status: 'new', 
       ...formData,
     };
@@ -40,7 +42,10 @@ function getForms(){
 }
 
 function getRequestById(id) {
-  return formsAdd.find((item) => item.id == id)
+  const request = formsAdd.find((item) => item.id == id);
+  request.dateDate = new Date(request.date).toLocaleDateString();
+  request.dateTime = new Date(request.date).toLocaleTimeString();
+  return request;
 }
 
 export {formsAdd, createRecord, getForms, getRequestById}
