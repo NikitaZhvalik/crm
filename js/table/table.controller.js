@@ -22,6 +22,7 @@ function filterByStatus(e) {
     const filter = model.changeFilter('status', e.target.dataset.value);
     const filterRequestsStatus = model.filterRequestsStatus(filter);
     view.renderAllRequest(filterRequestsStatus);
+    view.updateStatusBar(e.target.dataset.value);
 }
 
 renderAllRequest();
