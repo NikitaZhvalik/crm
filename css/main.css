@@ -799,3 +799,7 @@ body.with-nav .left-panel {
 	overflow-x: hidden;
 	overflow-y: auto;
 }
+
+.none {
+	display: none !important;
+}

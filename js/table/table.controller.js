@@ -5,11 +5,17 @@ function renderAllRequest() {
     const records = model.getForms();
     view.renderAllRequest(records);
     addEventListeners();
+
+    const countNewRequest = model.countNewRequest();
+    view.renderBadgeNew(countNewRequest);
 }
 
 function addEventListeners() {
     view.elements.select.addEventListener('change', filterProducts);
     view.elements.topStatusBar.addEventListener('click', filterByStatus);
+    view.elements.leftStatusLinks.forEach((link) => {
+        link.addEventListener('click', filterByStatus )
+    })
 }
 
 function filterProducts() {

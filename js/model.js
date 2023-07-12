@@ -31,9 +31,16 @@ function filterRequestsStatus(filter) {
   //! фильтр по статусу
   if (filter.status !== 'all') {
     filterRequestsStatus = formsAdd.filter((request) => request.status === filter.status);
-  } 
+  } else {
+    filterRequestsStatus = [...formsAdd];
+  }
 
   return filterRequestsStatus;
+}
+
+function countNewRequest() {
+  const newRequests = formsAdd.filter((request) => request.status === 'new');
+  return newRequests.length;
 }
 
 function createRecord(formData) {
@@ -93,4 +100,4 @@ function updateRequest(formData) {
   saveRequests();
 }
 
-export {formsAdd, changeFilter, filterRequests, createRecord, getForms, getRequestById, updateRequest, filterRequestsStatus}
+export {formsAdd, changeFilter, filterRequests, createRecord, getForms, getRequestById, updateRequest, filterRequestsStatus, countNewRequest}
