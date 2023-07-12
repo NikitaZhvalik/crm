@@ -20,12 +20,20 @@ function filterRequests(filter) {
     filterRequests = [...formsAdd];
   }
 
-  //! фильтр по статусу
-  if (filter.status !== 'all') {
-    filterRequests = formsAdd.filter((request) => request.status === filter.status);
-  } 
+  filterRequestsStatus(filter);
 
   return filterRequests;
+}
+
+function filterRequestsStatus(filter) {
+  let filterRequestsStatus;
+
+  //! фильтр по статусу
+  if (filter.status !== 'all') {
+    filterRequestsStatus = formsAdd.filter((request) => request.status === filter.status);
+  } 
+
+  return filterRequestsStatus;
 }
 
 function createRecord(formData) {
@@ -85,4 +93,4 @@ function updateRequest(formData) {
   saveRequests();
 }
 
-export {formsAdd, changeFilter, filterRequests, createRecord, getForms, getRequestById, updateRequest, }
+export {formsAdd, changeFilter, filterRequests, createRecord, getForms, getRequestById, updateRequest, filterRequestsStatus}

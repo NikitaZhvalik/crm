@@ -20,8 +20,8 @@ function filterProducts() {
 
 function filterByStatus(e) {
     const filter = model.changeFilter('status', e.target.dataset.value);
-    const filterRequests = model.filterRequests(filter);
-    view.renderAllRequest(filterRequests);
+    const filterRequestsStatus = model.filterRequestsStatus(filter);
+    view.renderAllRequest(filterRequestsStatus);
 }
 
 renderAllRequest();
