@@ -44,7 +44,6 @@ function getForms(){
 function getRequestById(id) {
   const request = formsAdd.find((item) => item.id == id);
   request.dateDate = new Date(request.date).toLocaleDateString();
-  request.dateTime = new Date(request.date).toLocaleTimeString();
   return request;
 }
 
