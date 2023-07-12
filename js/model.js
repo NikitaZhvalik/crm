@@ -5,17 +5,20 @@ function createRecord(formData) {
     let id = 1;
     if (formsAdd.length > 0) {
       const lastElement = formsAdd[formsAdd.length - 1];
-      const lastElId = lastElement.id;
       id = lastElement.id + 1;
     }
+
+    //! работа с временем
+    let date = new Date().toLocaleDateString();
+    let dateTime = new Date().toLocaleTimeString();
   
     //! формируем заявку
     const formAdd = {
       id: id,
-      product: formData.product,
-      name: formData.name,
-      email: formData.email,
-      phone: formData.phone,
+      date: date,
+      dateTime: dateTime,
+      status: 'new', 
+      ...formData,
     };
 
     formsAdd.push(formAdd);
@@ -34,4 +37,24 @@ function loadRequests(){
   return localStorage.getItem('formsAdd') ? JSON.parse(localStorage.getItem('formsAdd')) : [];
 }
 
-export {formsAdd, createRecord}
+function getForms(){
+  return formsAdd
+}
+
+function getRequestById(id) {
+  const request = formsAdd.find((item) => item.id == id);
+  request.dateDate = new Date(request.date).toLocaleDateString();
+  return request;
+}
+
+function updateRequest(formData) {
+  const request = getRequestById(formData.get('id'));
+  request.name = formData.get('name');
+  request.email = formData.get('email');
+  request.phone = formData.get('phone');
+  request.product = formData.get('product');
+  request.status = formData.get('status');
+  saveRequests();
+}
+
+export {formsAdd, createRecord, getForms, getRequestById, updateRequest}
