@@ -1,5 +1,25 @@
 const formsAdd = loadRequests();
 
+const filter = {
+  products: 'all',
+  status: 'all',
+}
+
+function changeFilter(prop, value) {
+  filter[prop] = value;
+  return filter
+}
+
+function filterRequests(filter) {
+  let filterRequests;
+
+  if (filter.products !== 'all') {
+    filterRequests = formsAdd.filter((request) =>request.product === filter.products);
+  }
+
+  return filterRequests;
+}
+
 function createRecord(formData) {
     //! расчет id
     let id = 1;
@@ -57,4 +77,4 @@ function updateRequest(formData) {
   saveRequests();
 }
 
-export {formsAdd, createRecord, getForms, getRequestById, updateRequest}
+export {formsAdd, changeFilter, filterRequests, createRecord, getForms, getRequestById, updateRequest, }

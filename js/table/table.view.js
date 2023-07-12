@@ -1,5 +1,7 @@
 const elements = {
     containerForms: document.querySelector('#tbody'),
+    select: document.querySelector('#productSelect'),
+    
 }
 
 function renderAllRequest(records) {
