@@ -43,6 +43,20 @@ function countNewRequest() {
   return newRequests.length;
 }
 
+function countAllRequest() {
+  return formsAdd.length;
+}
+
+function countCompleteRequest() {
+  const completeRequest = formsAdd.filter((request) => request.status === 'complete');
+  return completeRequest.length;
+}
+
+function countInWorkRequest() {
+  const inWorkRequest = formsAdd.filter((request) => request.status === 'inwork');
+  return inWorkRequest.length;
+}
+
 function createRecord(formData) {
     //! расчет id
     let id = 1;
@@ -100,4 +114,5 @@ function updateRequest(formData) {
   saveRequests();
 }
 
-export {formsAdd, changeFilter, filterRequests, createRecord, getForms, getRequestById, updateRequest, filterRequestsStatus, countNewRequest}
+export {formsAdd, changeFilter, filterRequests, createRecord, getForms, getRequestById, updateRequest, filterRequestsStatus, countNewRequest
+,countAllRequest, countCompleteRequest, countInWorkRequest, }

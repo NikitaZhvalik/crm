@@ -7,7 +7,13 @@ function renderAllRequest() {
     addEventListeners();
 
     const countNewRequest = model.countNewRequest();
+    const countAllRequest = model.countAllRequest();
+    const countCompleteRequest = model.countCompleteRequest();
+    const countInWorkRequest = model.countInWorkRequest();
     view.renderBadgeNew(countNewRequest);
+    view.renderBadgeAll(countAllRequest);
+    view.renderBadgeComplete(countCompleteRequest);
+    view.renderBadgeInWork(countInWorkRequest);
 }
 
 function addEventListeners() {
