@@ -4,7 +4,10 @@ const elements = {
     topStatusBar: document.querySelector('#topStatusBar'),
     leftStatusLinks: document.querySelectorAll('[data-role="left-status"]'),
     leftPanelNav: document.querySelector('.left-panel__navigation'),
+    badgeAll: document.querySelector('#badge-all'),
     badgeNew: document.querySelector('#badge-new'),
+    badgeInWork: document.querySelector('#badge-inwork'),
+    badgeComplete: document.querySelector('#badge-complete'),
 }
 
 function renderAllRequest(records) {
@@ -69,4 +72,28 @@ function renderBadgeNew(number) {
     }
 }
 
-export {elements, renderAllRequest, updateStatusBar, renderBadgeNew}
+function renderBadgeInWork(number) {
+    elements.badgeInWork.innerText = number;
+
+    if (number == 0) {
+        elements.badgeInWork.classList.add('none');
+    }
+}
+
+function renderBadgeAll(number) {
+    elements.badgeAll.innerText = number;
+
+    if (number == 0) {
+        elements.badgeAll.classList.add('none');
+    }
+}
+
+function renderBadgeComplete(number) {
+    elements.badgeComplete.innerText = number;
+
+    if (number == 0) {
+        elements.badgeComplete.classList.add('none');
+    }
+}
+
+export {elements, renderAllRequest, updateStatusBar, renderBadgeNew, renderBadgeInWork, renderBadgeAll, renderBadgeComplete}
