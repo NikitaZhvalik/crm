@@ -20,22 +20,12 @@ function filterRequests(filter) {
 		filterRequests = [...formsAdd];
 	}
 
-	filterRequestsStatus(filter);
-
-	return filterRequests;
-}
-
-function filterRequestsStatus(filter) {
-	let filterRequestsStatus;
-
 	//! фильтр по статусу
 	if (filter.status !== 'all') {
-		filterRequestsStatus = formsAdd.filter((request) => request.status === filter.status);
-	} else {
-		filterRequestsStatus = [...formsAdd];
+		filterRequests = filterRequests.filter((request) => request.status === filter.status);
 	}
 
-	return filterRequestsStatus;
+	return filterRequests;
 }
 
 function countNewRequest() {
@@ -111,5 +101,5 @@ function updateRequest(formData) {
 	saveRequests();
 }
 
-export {formsAdd, changeFilter, filterRequests, createRecord, getForms, getRequestById, updateRequest, filterRequestsStatus, countNewRequest
+export {formsAdd, changeFilter, filterRequests, createRecord, getForms, getRequestById, updateRequest, countNewRequest
 ,countAllRequest, countCompleteRequest, countInWorkRequest, }
