@@ -32,9 +32,9 @@ function filterProducts() {
 
 function filterByStatus(e) {
     const filter = model.changeFilter('status', e.target.dataset.value);
-    const filterRequestsStatus = model.filterRequestsStatus(filter);
+    const filterRequestsStatus = model.filterRequests(filter);
     view.renderAllRequest(filterRequestsStatus);
     view.updateStatusBar(e.target.dataset.value);
-}
+} 
 
 renderAllRequest();
